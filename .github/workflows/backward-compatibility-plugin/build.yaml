@@ -36,11 +36,11 @@ jobs:
       - name: Java setup
         uses: ./.github/actions/java-setup
 
-#      - name: Configure git
-#        uses: ./.github/actions/configure-git
+      - name: Configure git
+        uses: ./.github/actions/configure-git
 
-#      - name: Download deps and plugins
-#        run: mvn de.qaware.maven:go-offline-maven-plugin:resolve-dependencies
+      - name: Download deps and plugins
+        run: mvn de.qaware.maven:go-offline-maven-plugin:resolve-dependencies
 
       - name: Build and Deploy
         uses: ./.github/actions/build-deploy
