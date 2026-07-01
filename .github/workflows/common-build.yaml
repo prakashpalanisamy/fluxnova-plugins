@@ -46,6 +46,8 @@ jobs:
 
       - name: Java setup
         uses: ./.github/actions/java-setup
+        with:
+          project-path: ${{ inputs.project-path }}
 
       - name: Configure git
         uses: ./.github/actions/configure-git

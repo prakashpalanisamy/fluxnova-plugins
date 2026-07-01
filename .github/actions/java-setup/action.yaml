@@ -1,5 +1,11 @@
 name: "Java setup"
 description: "Common steps for Java setup"
+
+inputs:
+  project-path:
+    description: 'Path to the Maven project'
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -23,7 +29,7 @@ runs:
         cache-name: cache-mvn-deps
       with:
         path: ~/.m2/repository
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles(format('{0}/pom.xml', inputs.project-path)) }}
         restore-keys: |
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
