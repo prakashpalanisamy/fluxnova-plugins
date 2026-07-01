@@ -1,0 +1,12 @@
+name: "Configure Git"
+description: "Configure Git"
+runs:
+  using: "composite"
+  steps:
+    - name: Configure git
+      shell: bash
+      run: |
+        git config --global committer.email "prakashpalanisamy@outlook.com"
+        git config --global committer.name "Prakash Palanisamy"
+        git config --global author.email "prakashpalanisamy@outlook.com"
+        git config --global author.name "Prakash Palanisamy"
