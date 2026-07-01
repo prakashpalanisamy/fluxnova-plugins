@@ -1,16 +1,27 @@
-name: "Build CI"
+name: "Common Build"
+
+on:
+  workflow_call:
+    inputs:
+      project-name:
+        required: true
+        type: string
+      project-path:
+        required: true
+        type: string
+    secrets:
+      GH_TOKEN:
+        required: true
+      CI_DEPLOY_USERNAME:
+        required: true
+      CI_DEPLOY_PASSWORD:
+        required: true
 
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
   CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-  workflow_dispatch:
 
 concurrency:
   group: ${{ github.ref == 'refs/heads/main' && format('ci-default-branch-{0}-{1}', github.sha, github.workflow) ||
@@ -27,7 +38,7 @@ permissions:
 
 jobs:
   build:
-    name: Build
+    name: Build ${{ inputs.project-name }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -46,3 +57,4 @@ jobs:
         uses: ./.github/actions/build-deploy
         with:
           branch: ${{ github.ref_name }}
+          project-path: ${{ inputs.project-path }}
