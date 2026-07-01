@@ -5,9 +5,9 @@ inputs:
     description: 'Branch name to determine build or deploy'
     required: false
     default: ''
-    project-path:
-      description: 'Path to the Maven project'
-      required: true
+  project-path:
+    description: 'Path to the Maven project'
+    required: true
 runs:
   using: "composite"
   steps:
