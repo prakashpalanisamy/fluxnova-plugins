@@ -1,4 +1,4 @@
-name: build.yml
+name: "Fluxnova Backward Compatibility Plugin Build""
 on:
   push:
     branches:
