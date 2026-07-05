@@ -13,7 +13,7 @@ runs:
   steps:
     - name: Validate project path
       shell: bash
-    - run: |
+      run: |
         POM="${{ inputs.project-path }}/pom.xml"
         if [ ! -f "$POM" ]; then
           echo "::error::Cannot find Maven project at $POM"
