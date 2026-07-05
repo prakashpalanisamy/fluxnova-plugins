@@ -28,13 +28,13 @@ concurrency:
     format('ci-pr-{0}-{1}', github.ref, github.workflow) }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
-  packages: write
-  actions: read
-  pull-requests: write
-  attestations: write
-  id-token: write
+#permissions:
+#  contents: read
+#  packages: write
+#  actions: read
+#  pull-requests: write
+#  attestations: write
+#  id-token: write
 
 jobs:
   build:
