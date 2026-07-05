@@ -22,12 +22,6 @@ env:
   CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
   CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
 
-
-concurrency:
-  group: ${{ github.ref == 'refs/heads/main' && format('ci-default-branch-{0}-{1}', github.sha, github.workflow) ||
-    format('ci-pr-{0}-{1}', github.ref, github.workflow) }}
-  cancel-in-progress: true
-
 #permissions:
 #  contents: read
 #  packages: write
